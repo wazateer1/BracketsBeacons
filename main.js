@@ -5,9 +5,7 @@ define(function (require, exports, module) {
 		EditorManager = brackets.getModule("editor/EditorManager"),
 		Menus = brackets.getModule("command/Menus");
 
-
-	// Function to run when the menu item is clicked
-	function handlePlaceBeacon() {
+	handlePlaceBeacon = function () {
 		var editor = EditorManager.getFocusedEditor();
 		if (editor) {
 			var insertionPos = editor.getCursorPos(),
@@ -29,13 +27,9 @@ define(function (require, exports, module) {
 		}
 	}
 
-
-	// First, register a command - a UI-less object associating an id to a handler
-	var MY_COMMAND_ID = "wazateer1.placeBeacon"; // package-style naming to avoid collisions
-	CommandManager.register("Drop a beacon", MY_COMMAND_ID, handlePlaceBeacon);
-
-	// Then create a menu item bound to the command
-	// The label of the menu item is the name we gave the command (see above)
+	var BEACON_COMMAND_ID = "wazateer1.placeBeacon";
+	CommandManager.register("Drop a beacon", BEACON_COMMAND_ID, handlePlaceBeacon);
+	
 	var menu = Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU);
-	menu.addMenuItem(MY_COMMAND_ID, "Ctrl-Shift-1");
+	menu.addMenuItem(BEACON_COMMAND_ID, "Ctrl-Shift-1");
 });

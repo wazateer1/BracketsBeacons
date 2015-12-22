@@ -5,7 +5,7 @@ define(function (require, exports, module) {
 		EditorManager = brackets.getModule("editor/EditorManager"),
 		Menus = brackets.getModule("command/Menus");
 
-	handlePlaceBeacon = function () {
+	function handlePlaceBeacon() {
 		var editor = EditorManager.getFocusedEditor();
 		if (editor) {
 			var insertionPos = editor.getCursorPos(),

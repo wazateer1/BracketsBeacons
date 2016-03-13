@@ -18,7 +18,7 @@ define(function (require, exports, module) {
 				editor.document.replaceRange("echo('executed line " + insertionPos.line + "');", insertionPos);
 				break;
 			case "html":
-				editor.document.replaceRange("<script>echo('executed line " + insertionPos.line + "');</script>", insertionPos);
+				editor.document.replaceRange("<script>console.log('executed line " + insertionPos.line + "');</script>", insertionPos);
 				break;
 			default:
 				alert("Sorry, language type: " + editor.getModeForSelection() + " not supported.");
